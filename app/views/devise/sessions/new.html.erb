@@ -6,6 +6,7 @@
 <div class="row justify-content-md-center">  
   <div class = "col-6">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= flash_messages %>
       <div class="mb-3">
         <%= f.label :email, class: "form-label" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
