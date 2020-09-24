@@ -3,13 +3,20 @@
 
 <h1>Contacts</h1>
 
-<table class="table">
+<table class="table table-striped">
   <thead>
   <tr>
     <th scope="col">#</th>
     <th scope="col">First Name</th>
     <th scope="col">Last Name</th>
     <th scope="col">Email</th>
+    <th scope="col">Mobile</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Street</th>
+    <th scope="col">City</th>
+    <th scope="col">State</th>
+    <th scope="col">Country</th>
+    <th scope="col">Zip Code</th>
   </tr>
   </thead>
 
@@ -19,12 +26,19 @@
         <th scope="row"><%="#{index + 1}" %></th>
         <td><%=contact.first_name%></td>
         <td><%=contact.last_name%></td>
-        <td>@<%=contact.email%></td>
+        <td><%=contact.email%></td>
+        <td><%=contact.mobile%></td>
+        <td><%=contact.gender%></td>
+        <td><%=contact.street_address%></td>
+        <td><%=contact.city%></td>
+        <td><%=contact.state%></td>
+        <td><%=contact.country%></td>
+        <td><%=contact.zip_code%></td>
       </tr>
       <tr>
         <td><%= link_to 'Show', contact %></td>
         <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

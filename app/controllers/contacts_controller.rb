@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
   # GET /contacts
@@ -69,6 +70,6 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email)
+      params.require(:contact).permit(:first_name, :last_name, :email, :mobile, :gender, :street_address, :city, :state, :country, :zip_code)
     end
 end
