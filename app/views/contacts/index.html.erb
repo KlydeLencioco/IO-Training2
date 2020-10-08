@@ -23,14 +23,8 @@
         <td><%=contact.last_name%></td>
         <td><%=contact.email%></td>
         <td><%=contact.mobile%></td>
-        <td><%=contact.gender%></td>
-        <td><%=contact.street_address%></td>
-        <td><%=contact.city%></td>
-        <td><%=contact.state%></td>
-        <td><%=contact.country%></td>
-        <td><%=contact.zip_code%></td>
 
-        <td><%= link_to 'Show', contact %></td>
+        <td><%= link_to 'Show', contact_path(contact.id) %></td>
         <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
         <td><%= link_to 'Delete', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

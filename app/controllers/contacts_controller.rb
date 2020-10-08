@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
   # GET /contacts/1
   # GET /contacts/1.json
   def show
-    @contact = Contact.show(params[:id])
+    @contact = Contact.find(params[:id])
   end
 
   # GET /contacts/new
@@ -71,7 +71,7 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email, :mobile)
+      params.require(:contact).permit(:first_name, :last_name, :email, :mobile, :gender, :street_address, :city, :state, :country, :zip_code)
       #:gender, :street_address, :city, :state, :country, :zip_code
     end
 end
