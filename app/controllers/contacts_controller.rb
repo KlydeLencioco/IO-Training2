@@ -11,6 +11,7 @@ class ContactsController < ApplicationController
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+    @contact = Contact.show(params[:id])
   end
 
   # GET /contacts/new
@@ -57,7 +58,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
+      format.html { redirect_to contacts_url, notice: 'Contact was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +71,7 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email, :mobile, :gender, :street_address, :city, :state, :country, :zip_code)
+      params.require(:contact).permit(:first_name, :last_name, :email, :mobile)
+      #:gender, :street_address, :city, :state, :country, :zip_code
     end
 end
