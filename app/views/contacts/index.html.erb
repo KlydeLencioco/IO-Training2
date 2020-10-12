@@ -5,14 +5,14 @@
 
 <table class="table table-striped">
   <thead>
-  <tr>
-    <th scope="col"></th>
-    <th scope="col">First Name</th>
-    <th scope="col">Last Name</th>
-    <th scope="col">Email</th>
-    <th scope="col">Mobile</th>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
 
-  </tr>
+    </tr>
   </thead>
 
   <tbody>
@@ -32,6 +32,16 @@
   </tbody>
 </table>
 
-<br>
+<%= form_with(url: contacts_path, method: "get", local: true) do |form| %>
+  <div class="mb-3">
+    <%= form.label :search, class: "form-label" %>
+    <%= form.text_field :first_name, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag ("Search")%>
+  </div>
+
+<%end%>
 
 <%= link_to 'New Contact', new_contact_path %>

@@ -5,7 +5,11 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    if params[:first_name].present?
+      @contacts = Contact.where("first_name LIKE ?", "%#{params[:first_name]}%")
+    else
+      @contacts = Contact.all
+    end
   end
 
   # GET /contacts/1
