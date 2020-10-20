@@ -14,14 +14,14 @@
         <li class="nav-item dropdown">
           <% if user_signed_in? %>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              <%="Hello #{current_user.email}" %>
+              <%="Hello #{current_user.UserName}" %>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"  %></li>
             </ul>
           <% else %>
             <li><%=link_to "Login", new_user_session_path, class: "btn btn-outline-success mr-1"%></li>
-            <li><%=link_to "Sign Up", new_user_registration_path, class: "btn btn-primary"%></li>
+            <li><%=link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-success mr-1"%></li>
           <% end %>
           
         </li>

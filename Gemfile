@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 
+#gem for pagination(kaminari)
+gem 'kaminari'
+
 # Use  devise
 gem 'devise'
 

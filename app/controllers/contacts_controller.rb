@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
     if params[:first_name].present?
-      @contacts = Contact.where("first_name LIKE ?", "%#{params[:first_name]}%")
+      @contacts = Contact.where("first_name LIKE ?" , "%#{params[:first_name]}%")
     else
       @contacts = Contact.all
     end
