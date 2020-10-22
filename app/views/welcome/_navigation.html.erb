@@ -10,20 +10,40 @@
           <a class="nav-link active" aria-current="page" href="/contacts">Contacts</a>
         </li>
       </ul>
+
+      <%if user_signed_in? %>
+      <%= form_with(url: contacts_path, method: "get", class: "d-flex", local: true) do |form| %>
+        <div class="input-group mb-3">
+          <%= search_field_tag :search, params[:search], placeholder: "Search contact", class: "form-control form-control-sm" %>
+        </div>
+        <div class="actions">
+          <%= submit_tag ("Search"), class: "btn btn-info glyphicon glyphicon-search btn-sm"%>
+        </div>
+      <%end%>
+    <% end %>
+
       <ul class="d-flex list-unstyled">
         <li class="nav-item dropdown">
           <% if user_signed_in? %>
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              <%="Hello #{current_user.UserName}" %>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"  %></li>
-            </ul>
+            <div class = "row">
+              <div class = "col-xs-4">
+                
+              </div>
+
+              <div class = "col-xs-4">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                  <%="Hello #{current_user.UserName}" %>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"  %></li>
+                  <li><%= link_to "View Profile", view_user_path, class: "dropdown-item"  %></li>
+                </ul>
+              </div>
+            </div>
           <% else %>
             <li><%=link_to "Login", new_user_session_path, class: "btn btn-outline-success mr-1"%></li>
             <li><%=link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-success mr-1"%></li>
           <% end %>
-          
         </li>
       </ul>
     </div>

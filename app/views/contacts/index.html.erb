@@ -3,18 +3,6 @@
 
 <h1>Contacts</h1>
 
-<%= form_with(url: contacts_path, method: "get", local: true) do |form| %>
-  <div class="mb-3">
-    <%= form.label :search, class: "form-label" %>
-    <%= form.text_field :first_name, class: "form-control" %>
-  </div>
-
-  <div class="actions">
-    <%= submit_tag ("Search"), class: "btn btn-primary"%>
-  </div>
-
-<%end%>
-
 <table class="table table-light table-hover">
   <thead class = "table-dark">
     <tr>

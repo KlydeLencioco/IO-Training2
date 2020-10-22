@@ -1,15 +1,20 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :edit, :update, :destroy, :search]
 
   # GET /contacts
   # GET /contacts.json
   def index
-    if params[:first_name].present?
-      @contacts = Contact.where("first_name LIKE ?" , "%#{params[:first_name]}%")
+    if params[:search].present?
+      @contacts = Contact.where("first_name LIKE ?" , "%#{params[:search]}%").or(Contact.where("last_name LIKE ?", "%#{params[:search]}%"))
     else
       @contacts = Contact.all
     end
+  end
+
+  def search
+    @parameter = params[:first_name]
+    @contacts = Contact.all.where("first_name LIKE ?" , search: @parameter)
   end
 
   # GET /contacts/1
